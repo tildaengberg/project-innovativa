@@ -1,22 +1,26 @@
-import React from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native'
+import colors from '../config/colors'
+import StyledText from '../config/StyledText'
 
-export const Button = () => {
+const Button = ({ color = 'black', children, onPress, disabled = false }) => {
   return (
-    <View style={button.container}>
-      <TouchableOpacity onPress={() => console.log('Pressed')}>
-        <Text>Test knapp</Text>
-      </TouchableOpacity>
-    </View>
+    <TouchableWithoutFeedback disabled={disabled} onPress={onPress}>
+      <View style={[styles.button, { backgroundColor: colors[color].main }]}>
+        <StyledText textStyle='button' textColor={colors[color].contrastColor}>
+          {children}
+        </StyledText>
+      </View>
+    </TouchableWithoutFeedback>
   )
 }
 
-const button = StyleSheet.create({
-  container: {
-    padding: 10,
-    borderRadius: 5,
-    backgroundColor: 'red',
-    alignItems: 'center',
-    justifyContent: 'center',
+export default Button
+
+const styles = StyleSheet.create({
+  button: {
+    marginBottom: 8,
+    padding: 16,
+    borderRadius: 12,
+    width: '100%',
   },
 })
