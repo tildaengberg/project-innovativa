@@ -1,22 +1,18 @@
-import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
-import { Button } from './components/Button'
+import { View } from 'react-native'
+import Button from './components/Button'
+import MarginBox from './config/MarginBox'
+import StyledText from './config/StyledText'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Hejsan hoppsan!</Text>
-      <Button />
-      <StatusBar style='auto' />
+    <View style={MarginBox.container}>
+      <StyledText textStyle='h2'>Hejsan hoppsan!</StyledText>
+      <StyledText>
+        Har lagt in lite konfigurationer med färger, marginaler och typsnitt.
+      </StyledText>
+      <Button color='yellow' onPress={() => console.log('Click')}>
+        Testknapp
+      </Button>
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
