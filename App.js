@@ -14,7 +14,7 @@ export default function App() {
       <Button color='yellow' onPress={() => console.log('Click')}>
         Testknapp
       </Button>
-      <ProfilePic source={require("./assets/profile.png")} onPress={() => console.log('Profile')}/>
+      <ProfilePic profile={require("./assets/profile.png")} emoji={require("./assets/favicon.png")} onPress={() => console.log('Profile')} height={100} width={100}/>
     </View>
   )
 }
