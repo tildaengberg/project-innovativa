@@ -1,11 +1,11 @@
 import { View, StyleSheet, TouchableWithoutFeedback, Image } from 'react-native'
 
-const ProfilePic = ({ profile, emoji, onPress, disabled = false, width = 100, height = 100 }) => {
+const ProfilePic = ({ profile, emoji, onPress, disabled = false, size = 100 }) => {
   return (
     <TouchableWithoutFeedback disabled={disabled} onPress={onPress}>
-      <View style={[styles.holder, {width: width, height: height}]}>
-        <Image source={profile} style={styles.image} /> 
-        <Image source={emoji} style={styles.emoji} />
+      <View style={[styles.holder, {width: size, height: size}]}>
+        <Image source={profile} style={[styles.image, {borderRadius: size}]} /> 
+        <Image source={emoji} style={[styles.emoji, {borderRadius: size}]} />
       </View>
     </TouchableWithoutFeedback>
   )
@@ -20,13 +20,11 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   image: {
-    borderRadius: 100,
     height: '100%',
     width: '100%',
     position: 'relative',
   },
   emoji: {
-    borderRadius: 100,
     top: '50%',
     left: '50%',
     height: '50%',
