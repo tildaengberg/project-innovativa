@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
   holder: {
     position: 'relative',
     marginBottom: 8,
-    padding: 16,
   },
   image: {
     height: '100%',
@@ -25,8 +24,8 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   emoji: {
-    top: '50%',
-    left: '50%',
+    top: '55%',
+    left: '55%',
     height: '50%',
     width: '50%',
     position: 'absolute',
