@@ -1,6 +1,7 @@
 import { View } from 'react-native'
 import Button from './components/Button'
 import ProfilePic from './components/ProfilePic'
+import Like from './components/Like'
 import MarginBox from './config/MarginBox'
 import StyledText from './config/StyledText'
 
@@ -15,6 +16,7 @@ export default function App() {
         Testknapp
       </Button>
       <ProfilePic profile={require("./assets/profile.png")} emoji={require("./assets/profile.png")} onPress={() => console.log('Profile')} size={100} />
+      <Like>100</Like>
     </View>
   )
 }

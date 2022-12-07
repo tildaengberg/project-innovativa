@@ -66,6 +66,11 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     textAlign: 'center',
   },
+  like: {
+    fontFamily: 'Poppins_700Bold',
+    fontSize: 16,
+    lineHeight: 24,
+  },
   smallAction: {
     fontFamily: 'Poppins_500Medium',
     fontSize: 16,
