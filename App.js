@@ -1,5 +1,6 @@
 import { View } from 'react-native'
 import Button from './components/Button'
+import ProfilePic from './components/ProfilePic'
 import MarginBox from './config/MarginBox'
 import StyledText from './config/StyledText'
 
@@ -13,6 +14,7 @@ export default function App() {
       <Button color='yellow' onPress={() => console.log('Click')}>
         Testknapp
       </Button>
+      <ProfilePic source={require("./assets/profile.png")} onPress={() => console.log('Profile')}/>
     </View>
   )
 }
