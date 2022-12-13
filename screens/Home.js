@@ -7,7 +7,6 @@ const Home = () => {
   return (
     <View style={MarginBox.container}>
       <StyledText>Hem</StyledText>
-      <TextPost></TextPost>
     </View>
   )
 }

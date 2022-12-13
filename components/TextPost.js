@@ -1,15 +1,13 @@
-import { View, StyleSheet, Text,TouchableWithoutFeedback} from 'react-native'
+import { View, StyleSheet} from 'react-native'
 import colors from '../config/colors'
 import StyledText from '../config/StyledText'
 import Like from './Like'
 import Comments from './Comments'
 import SmallProfilePic from './SmallProfilePic'
 
-{/* <Moodstory name= 'Agneta' emoji = '&#x1F600;' onPress={() => console.log('Click på emoji')}/> 
-        <Like color = 'black' onPress ={()=> console.log("klick hjärta")}>2</Like>
-        <Comments color = 'black' onPress ={()=> console.log("klick kommentar")}>2</Comments>*/}
 
 const TextPost = () => {
+
   return (
     <View>
         <SmallProfilePic profile={require("../assets/profile.png")} emoji='&#128546;' name='Emma' location='Sverige, Umeå ' time='17.22' />
