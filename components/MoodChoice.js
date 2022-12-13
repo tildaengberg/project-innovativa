@@ -1,11 +1,20 @@
-import { View, StyleSheet, Text, Image, TouchableWithoutFeedback } from 'react-native'
+import { useState } from 'react'
+import { View, StyleSheet, Text, Image, TouchableWithoutFeedback, TouchableOpacity, Alert } from 'react-native'
 import colors from '../config/colors'
 
-const MoodChoice = ({emoji, last = false}) => {
+const MoodChoice = ({emoji, children, last = false}) => {  
+  
+  const [chosenEmoji, setChosenEmoji] = useState();
+  const onPress = () => {
+    setChosenEmoji(emoji);
+  }
+  
   return (
+    <TouchableOpacity onPress={onPress} children={children}>
       <View style={styles.moodBackground}>
-        {last ? <Image source = {require('../assets/favicon.png')} style = {styles.last}></Image> : <Text style={styles.centered}>{emoji}</Text>}
+        {last ? <Image source = {require('../assets/addicon.png')} style = {styles.last}></Image> : <Text style={styles.centered}>{emoji}</Text>}
       </View>
+    </TouchableOpacity>
   )
 }
 
