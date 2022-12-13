@@ -50,6 +50,11 @@ const styles = StyleSheet.create({
     lineHeight: 60,
   },
   h3: { fontFamily: 'Poppins_700Bold', fontSize: 24, lineHeight: 36 },
+  bodySmallest: {
+    fontFamily: 'Poppins_400Regular',
+    fontSize: 14,
+    lineHeight: 20,
+  },
   bodySmall: {
     fontFamily: 'Poppins_400Regular',
     fontSize: 16,
