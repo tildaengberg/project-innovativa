@@ -33,4 +33,8 @@ export default {
     main: '#2A3133',
     contrastColor: 'white',
   },
+  transparent: {
+    main: 'rgba(52, 52, 52, 0)',
+    contrastColor: 'black'
+  }
 }
