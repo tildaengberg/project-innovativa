@@ -2,14 +2,14 @@ import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native'
 import MoodChoice from './MoodChoice'
 import { useState } from 'react'
 import EmojiSelector, {Categories} from 'react-native-emoji-selector'
+import colors from '../config/colors'
 
 
-const MoodPicker = () => {
+const MoodPicker = ({ chosenEmoji, setChosenEmoji}) => {
   
   var last = false;
-  const [chosenEmoji, setChosenEmoji] = useState('');
   const [showSelector, setShowSelector] = useState(false);
-  console.log(chosenEmoji);
+
   const onPress = (emoji) => {
     setShowSelector(false);
     if(last === false) {
@@ -22,7 +22,7 @@ const MoodPicker = () => {
   }
 
   return (
-    <View style={styles.bg}>
+    <View style={[showSelector===true ? styles.bgLarge :  styles.bg]}> 
       <View style={styles.container}>
         <MoodChoice emoji='&#128546;' onPress={onPress}></MoodChoice>
         <MoodChoice emoji='&#128532;' onPress={onPress}></MoodChoice>
@@ -33,7 +33,7 @@ const MoodPicker = () => {
       </View>
       {showSelector === true ? <EmojiSelector
         category={Categories.emotion}
-        onEmojiSelected={emoji => setChosenEmoji(emoji)} /> : null}
+        onEmojiSelected={emoji => {setChosenEmoji(emoji), setShowSelector(false)}} /> : null}
     </View>
   )
 }
@@ -44,9 +44,16 @@ const styles = StyleSheet.create({
   container: {
     display:'flex',
     flexDirection:'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    width:'100%',
   },
   bg: {
-    height:'50%'
+    width: '100%',
+    backgroundColor: colors.background.main,
+  },
+  bgLarge: {
+    width: '100%',
+    backgroundColor:colors.background.main,
+    height: '100%',
   }
 })
