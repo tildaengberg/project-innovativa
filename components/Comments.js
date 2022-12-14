@@ -1,15 +1,16 @@
-import { View, StyleSheet, TouchableWithoutFeedback, Image } from 'react-native'
+import { Ionicons } from '@expo/vector-icons'
+import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native'
 import StyledText from '../config/StyledText'
 
 const Comments = ({ color = 'black', children, onPress, disabled = false }) => {
   return (
     <TouchableWithoutFeedback disabled={disabled} onPress={onPress}>
-        <View style={[styles.holder, {width: 200, height: 20}]}>
-            <StyledText textStyle='like' textColor={color}>
-                <Image source={require('../assets/comment.png')} style={styles.image} /> 
-                {children}
-            </StyledText>
-        </View>
+      <View style={[styles.holder]}>
+        <Ionicons name='ios-chatbubble-outline' size={25} />
+        <StyledText textStyle='like' textColor={color}>
+          {children}
+        </StyledText>
+      </View>
     </TouchableWithoutFeedback>
   )
 }
@@ -17,13 +18,10 @@ const Comments = ({ color = 'black', children, onPress, disabled = false }) => {
 export default Comments
 
 const styles = StyleSheet.create({
-    holder: {
-        marginBottom: 8,
-    },
-    image: {
-        width: 22, 
-        height: 22, 
-        marginRight: 5, 
-        marginBottom: -5
-    },
+  holder: {
+    width: 50,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
 })
