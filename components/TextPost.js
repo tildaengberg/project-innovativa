@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   likeAndCommentPost:{
     display: 'flex',
     flexDirection: 'row',
-    width:'35%',
+    width:'32%',
     justifyContent: 'space-between',
     marginTop:10,
     marginBottom:10,
