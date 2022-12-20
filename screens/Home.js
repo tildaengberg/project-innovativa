@@ -59,7 +59,9 @@ const styles = StyleSheet.create({
     zIndex:1,
   },
   bottom: {
-    marginTop: 'auto'
+    flex:1,
+    justifyContent:'flex-end',
+    height:'100%',
   },
   fullHeight: {
     height:'100%',
