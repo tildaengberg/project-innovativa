@@ -6,7 +6,7 @@ var invert = false;
 
 
 
-const Checkbox = ({ color='green', secondaryColor='yellow', children, disabled = false, source }) => {
+const Checkbox = ({ color='green', secondaryColor='white', children, disabled = false, source }) => {
 
   const [choosenColor, setColor] = useState(colors[color].main);
   const [choosenBackgroundColor, setBackgroundColor] = useState(colors[color].contrastColor);
@@ -40,8 +40,8 @@ export default Checkbox
 const styles = StyleSheet.create({
   button: {
     marginBottom: 8,
-    padding: 16,
-    paddingTop: 26,
+    padding: 8,
+    paddingTop: 18,
     borderRadius: 12,
     width: '100%',
     display: 'block',

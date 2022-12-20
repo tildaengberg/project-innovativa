@@ -2,7 +2,7 @@ import { Ionicons } from '@expo/vector-icons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import colors from '../config/colors'
 import Home from '../screens/Home'
-import Memories from '../screens/Memories'
+import Memories from '../screens/Family'
 import Post from '../screens/Post'
 import Profile from '../screens/Profile'
 
