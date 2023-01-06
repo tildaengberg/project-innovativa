@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import {
-  ImageBackground,
+  Image,
   StyleSheet,
-  Text,
+  TextInput,
   TouchableOpacity,
   View,
 } from 'react-native'
@@ -11,32 +11,30 @@ import ActionButton from '../components/ActionButton'
 import { Camera } from 'expo-camera'
 import { Ionicons } from '@expo/vector-icons'
 import Button from '../components/Button'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import StyledText from '../config/StyledText'
 
-const Post = () => {
-  const [hasPermission, setHasPermission] = useState(null)
+const Post = ({ navigation }) => {
   const [type, setType] = useState(Camera.Constants.Type.back)
   const [photo, setPhoto] = useState('')
+  const [text, setText] = useState('')
   const [flash, setFlash] = useState(Camera.Constants.FlashMode.off)
   const ref = useRef(null)
 
-  useEffect(() => {
-    ;(async () => {
-      const { status } = await Camera.requestCameraPermissionsAsync()
-      setHasPermission(status === 'granted')
-    })()
-  }, [])
-
   const _takePhoto = async () => {
-    const photoData = await ref.current.takePictureAsync()
+    const photo = await ref.current.takePictureAsync()
     setPhoto(photo)
-    console.log(photoData)
+    console.log(photo)
   }
 
-  if (hasPermission === null) {
-    return <View />
-  }
-  if (hasPermission === false) {
-    return <Text>No access to camera</Text>
+  const storeData = async (image, text) => {
+    try {
+      const jsonImg = JSON.stringify(image)
+      await AsyncStorage.setItem('image', jsonImg)
+      await AsyncStorage.setItem('text', text)
+    } catch (e) {
+      alert('Can not save')
+    }
   }
 
   if (photo == '') {
@@ -86,8 +84,8 @@ const Post = () => {
     )
   } else {
     return (
-      <ImageBackground source={photo} style={styles.image} resizeMode='cover'>
-        <View style={[styles.actionButton, MarginBox.container]}>
+      <View style={[styles.strech]}>
+        <View>
           <ActionButton
             onPress={() => {
               setPhoto('')
@@ -96,10 +94,48 @@ const Post = () => {
             text='Tillbaka'
           />
         </View>
-        <Button color='yellow' onPress={() => console.log('Save')}>
-          Nästa
-        </Button>
-      </ImageBackground>
+        <View
+          style={{
+            justifyContent: 'space-between',
+            flex: 1,
+          }}
+        >
+          <View style={{ alignItems: 'center', flex: 1, marginTop: 50 }}>
+            <StyledText textAlign='center' textStyle='h3'>
+              Dagens bildutmaning
+            </StyledText>
+            <StyledText textAlign='center' textStyle='bodySmall'>
+              Ta en bild på någonting som gör dig glad
+            </StyledText>
+            <Image
+              source={photo}
+              style={{
+                width: 360,
+                height: 360,
+                borderRadius: 12,
+                marginTop: 25,
+              }}
+            />
+          </View>
+          <View style={{ justifyContent: 'space-around' }}>
+            <TextInput
+              onChangeText={setText}
+              value={text}
+              style={styles.input}
+              placeholder='Skriv din text här...'
+            />
+            <Button
+              color='yellow'
+              onPress={() => {
+                storeData(photo, text)
+                navigation.navigate('Family')
+              }}
+            >
+              Nästa
+            </Button>
+          </View>
+        </View>
+      </View>
     )
   }
 }
@@ -114,13 +150,20 @@ const styles = StyleSheet.create({
   camera: {
     flex: 1,
   },
+  strech: {
+    justifyContent: 'space-between',
+    flex: 1,
+    paddingTop: 50,
+    paddingBottom: 16,
+    paddingHorizontal: 16,
+  },
   controls: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    flex: 0.25,
   },
   buttons: {
     flexDirection: 'row',
+    alignSelf: 'center',
   },
   button: {
     flex: 1,
@@ -130,12 +173,24 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     justifyContent: 'center',
+    zIndex: 3,
+    backgroundColor: 'red',
   },
-  actionButton: { paddingTop: 50 },
   saveButton: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
     flex: 0.25,
     zIndex: 10,
+  },
+  input: {
+    maxHeight: 100,
+    padding: 10,
+    height: 65,
+    borderColor: 'grey',
+    borderWidth: 1,
+    placeholderTextColor: 'gray',
+    borderRadius: '10',
+    backgroundColor: 'white',
+    marginBottom: 16,
   },
 })

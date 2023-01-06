@@ -1,14 +1,39 @@
 import { Ionicons } from '@expo/vector-icons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createStackNavigator } from '@react-navigation/stack'
 import colors from '../config/colors'
 import Home from '../screens/Home'
-import Memories from '../screens/Family'
+import Memories from '../screens/Memories'
 import Post from '../screens/Post'
 import Profile from '../screens/Profile'
+import DailyPicChallange from '../screens/DailyPicChallenge'
+import Family from '../screens/Family'
 
 const Tab = createBottomTabNavigator()
 
 const Navbar = () => {
+  const HomeStack = createStackNavigator()
+
+  // ! Add feed to stack
+  function HomeStackScreen() {
+    return (
+      <HomeStack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+        initialRouteName='Home'
+      >
+        <HomeStack.Screen name='Home' component={Home} />
+        <HomeStack.Screen
+          name='DailyPicChallange'
+          component={DailyPicChallange}
+        />
+        <HomeStack.Screen name='Post' component={Post} />
+        <HomeStack.Screen name='Family' component={Family} />
+      </HomeStack.Navigator>
+    )
+  }
+
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -39,7 +64,7 @@ const Navbar = () => {
         tabBarInactiveTintColor: colors.grey.main,
       })}
     >
-      <Tab.Screen name='Hem' component={Home} />
+      <Tab.Screen name='Hem' component={HomeStackScreen} />
       <Tab.Screen name='Minnen' component={Memories} />
       <Tab.Screen name='Inlägg' component={Post} />
       <Tab.Screen name='Profil' component={Profile} />
