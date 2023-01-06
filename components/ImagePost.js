@@ -10,8 +10,9 @@ import { Dimensions } from 'react-native';
 const ImagePost = () => {
 
   //Just for testing
-  const image = require('../assets/profile.png');
-  const text = "Tja tja bloggen, det här är en bild på mig som jag tycker är väldigt tjusig. Hoppas er dag har varit makalöst underbar 😘✅"
+  const profileImage = require('../assets/profile.png');
+  const image = require('../assets/testImage.jpg');
+  const text = "Tja tja bloggen, det här är en bild på ett hus som jag tycker är väldigt tjusig. Hoppas er dag har varit makalöst underbar 😘✅"
 
   const [showAllText, setShowAllText] = useState(false);
 
@@ -21,7 +22,7 @@ const ImagePost = () => {
 
   return (
       <View>
-          <SmallProfilePic profile={image} emoji='&#128546;' name='Emma' location='Sverige, Umeå ' time='17.22' />
+          <SmallProfilePic profile={profileImage} emoji='&#128546;' name='Emma' location='Sverige, Umeå ' time='17.22' />
           <Image resizeMode="cover" style={styles.imgStyle} source={image} />
           {showAllText === true ? <StyledText textColor={'grey'} nrOfLines={1000} textStyle={'bodySmallest'}>{text}</StyledText> : <StyledText textColor={'grey'} nrOfLines={2} textStyle={'bodySmallest'}>{text}</StyledText> }
           {showAllText === true ? "" : <Text onPress={onPress} style={styles.viewMore}>Visa mer</Text>}
@@ -40,6 +41,7 @@ const styles = StyleSheet.create({
     width:'100%',
     height: Dimensions.get('window').width-32,
     borderRadius: 15,
+    marginBottom: 5
   },
   likeAndCommentPost:{
     display: 'flex',
