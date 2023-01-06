@@ -2,28 +2,65 @@
     "profiles":[
         {
             "id": 0,
-            "firstName": "Emma",
+            "firstName": "Isa",
             "LastName": "Johansson",
-            "age": 27,
-            "profilePic":"../assets/images/emmaProfile.png"
+            "age": 82,
+            "profilePic":"../assets/images/isaProfile.png"
         },
         {
             "id": 1,
             "firstName": "Elias",
-            "LastName": "Johansson",
+            "LastName": "Larsson",
             "age": 32,
             "profilePic":"../assets/images/eliasProfile.png"
         }
+        ,
+        {
+            "id": 2,
+            "firstName": "Anders",
+            "LastName": "Johansson",
+            "age": 45,
+            "profilePic":"../assets/images/andersProfile.png"
+        },
+        {
+            "id": 3,
+            "firstName": "Emelie",
+            "LastName": "Johansson",
+            "age": 22,
+            "profilePic":"../assets/images/emelieProfile.png"
+        },
+        {
+            "id": 4,
+            "firstName": "Hanna",
+            "LastName": "Lindgren",
+            "age": 38,
+            "profilePic":"../assets/images/hannaProfile.png"
+        },
+        {
+            "id": 5,
+            "firstName": "Emma",
+            "LastName": "Johansson",
+            "age": 27,
+            "profilePic":"../assets/images/emmaProfile.png"
+        }
     ],
+    "smileyPosts":[
+        {
+            "ownerID":1,
+            "smiley":"blabla",
+            "text": "Hej idag mår jag bla"
+        }
+    ]
+    ,
     "textPosts":[
         {
             "id": 0,
             "ownerID":0,
-            "content":"hej jag heter emma johansson",
-            "time": "17.22",
+            "content":"Om någon inte har sett den nya dokumentären på Netflix om djurbebisar så tycker jag verkligen ni ska se den! Den är så bra! Till och med Ture tyckte om den, och det säger mycket haha.",
+            "time": "10.32",
             "location":"Umeå, Sverige",
             "nrOfLikes": 2,
-            "nrOfComments":1
+            "nrOfComments":4
         }
     ],
     "imagePosts":[
@@ -32,10 +69,20 @@
             "ownerID":1,
             "image": "../assets/images/mat.png",
             "comment":"Idag har vi varit och köpt mat på det nya stället i stan!",
-            "time": "17.44",
+            "time": "12.44",
             "location":"Umeå, Sverige",
             "nrOfLikes": 2,
             "nrOfComments":1
+        },
+        {
+            "id": 1,
+            "ownerID":5,
+            "image": "../assets/images/tureLeker.png",
+            "comment":"Ture älskade att det kom lite regn idag! Favoritleken är att hoppa i vattenpölar!",
+            "time": "13.47",
+            "location":"Umeå, Sverige",
+            "nrOfLikes": 3,
+            "nrOfComments":0
         }
     ]
 }
