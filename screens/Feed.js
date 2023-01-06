@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { ScrollView, View } from 'react-native'
 import FamilyImage from '../components/FamilyImage'
 import ImagePost from '../components/ImagePost'
@@ -64,33 +63,3 @@ const styles = StyleSheet.create({
   },
 })
 
-=======
-import { View, StyleSheet } from 'react-native'
-import MarginBox from '../config/MarginBox'
-import StyledText from '../config/StyledText'
-import Input from '../components/Input'
-import ProfilePic from '../components/ProfilePic'
-import MoodPicker from '../components/MoodPicker'
-import Button from '../components/Button'
-import { useState } from 'react'
-import FamilyImage from '../components/FamilyImage'
-
-
-const Feed = () => {
-
-  return (
-    //<View style={MarginBox.container}>
-      <View style={styles.fullHeight}>
-      </View>
-    //</View>
-  )
-}
-
-export default Feed
-
-const styles = StyleSheet.create({
-  fullHeight: {
-    height:'100%',
-  }
-})
->>>>>>> 462d5ed8b6f14f47136eaffae8f9aed3ac905923
