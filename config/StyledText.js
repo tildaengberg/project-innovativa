@@ -14,6 +14,7 @@ const StyledText = ({
   textColor = 'black',
   textAlign = 'left',
   children,
+  nrOfLines,
 }) => {
   let [fontsLoaded] = useFonts({
     Poppins_400Regular,
@@ -26,6 +27,7 @@ const StyledText = ({
   }
   return (
     <Text
+    numberOfLines={nrOfLines}
       style={[
         { color: colors[textColor].main, textAlign: textAlign },
         styles[textStyle],
