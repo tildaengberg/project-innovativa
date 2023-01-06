@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import colors from '../config/colors'
 import Moodstory from "./Moodstory";
 
-const Moodmodal = ({emoji}) => {
+const Moodmodal = ({emoji, name}) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={[styles.centeredView, MarginBox.container]}>
@@ -20,7 +20,7 @@ const Moodmodal = ({emoji}) => {
             }}
         >
             
-            <View style={styles.centeredView}>
+            <View style={[styles.centeredView, {backgroundColor: colors["grey"].main}]}>
             <View style={[styles.modalView, MarginBox.container]}>
                 <View style={[{width: '100%'}]}>
                     <Pressable
@@ -33,7 +33,7 @@ const Moodmodal = ({emoji}) => {
             
                 <Text style={[styles.emoji, {fontSize: 100}]}>{emoji}</Text>
                 <StyledText textStyle='h3'>
-                    Emma Svensson
+                    {name}
                 </StyledText>
                 <View style={styles.descriptionText}>
                     <StyledText textStyle='bodySmall'>
@@ -44,7 +44,7 @@ const Moodmodal = ({emoji}) => {
             </View>
             </View>
         </Modal>
-        <Moodstory emoji={emoji} onPress={() => setModalVisible(true)}></Moodstory>
+        <Moodstory emoji={emoji} name={name} onPress={() => setModalVisible(true)}></Moodstory>
     </View>
   );
 };
@@ -59,7 +59,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     margin: 0,
-    backgroundColor: "white",
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
