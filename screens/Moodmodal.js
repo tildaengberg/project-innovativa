@@ -5,52 +5,47 @@ import StyledText from "../config/StyledText";
 import MarginBox from "../config/MarginBox";
 import Icon from 'react-native-vector-icons/Ionicons'
 import colors from '../config/colors'
+import Moodstory from "../components/Moodstory";
 
 const Moodmodal = () => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={[styles.centeredView, MarginBox.container]}>
-      <Modal
-        animationType="none"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
-        }}
-      >
-        
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <View style={[{width: '100%'}]}>
-                <Pressable
-                    style={[styles.button, styles.buttonClose]}
-                    onPress={() => setModalVisible(!modalVisible)}
-                >
-                    <Icon name='chevron-back' size={25} color={colors["black"].main} />
-                </Pressable>
-            </View>
+        <Modal
+            animationType="none"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => {
+            Alert.alert("Modal has been closed.");
+            setModalVisible(!modalVisible);
+            }}
+        >
             
-            <Text style={styles.modalText}>Hello World!</Text>
-            <ProfilePic profile={require('../assets/profile.png')} size={150}></ProfilePic>
-            <StyledText textStyle='h3'>
-                Emma Svensson
-            </StyledText>
-            <View style={styles.descriptionText}>
-                <StyledText textStyle='bodySmall'>
-                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.
+            <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+                <View style={[{width: '100%'}]}>
+                    <Pressable
+                        style={[styles.button, styles.buttonClose]}
+                        onPress={() => setModalVisible(!modalVisible)}
+                    >
+                        <Icon name='chevron-back' size={25} color={colors["black"].main} />
+                    </Pressable>
+                </View>
+            
+                <ProfilePic profile={require('../assets/profile.png')} size={150}></ProfilePic>
+                <StyledText textStyle='h3'>
+                    Emma Svensson
                 </StyledText>
+                <View style={styles.descriptionText}>
+                    <StyledText textStyle='bodySmall'>
+                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.
+                    </StyledText>
+                </View>
+                
             </View>
-            
-          </View>
-        </View>
-      </Modal>
-      <Pressable
-        style={[styles.button, styles.buttonOpen]}
-        onPress={() => setModalVisible(true)}
-      >
-        <Text style={styles.textStyle}>Show Modal</Text>
-      </Pressable>
+            </View>
+        </Modal>
+        <Moodstory onPress={() => setModalVisible(true)}></Moodstory>
     </View>
   );
 };
