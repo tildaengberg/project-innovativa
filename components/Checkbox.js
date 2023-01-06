@@ -1,36 +1,42 @@
-import { View, StyleSheet, TouchableWithoutFeedback, Image, Text } from 'react-native'
+import { View, StyleSheet, TouchableWithoutFeedback, Image } from 'react-native'
 import { useState } from 'react'
 import colors from '../config/colors'
+import StyledText from '../config/StyledText'
 
-var invert = false;
+var invert = false
 
+const Checkbox = ({
+  color = 'green',
+  secondaryColor = 'white',
+  children,
+  disabled = false,
+  source,
+}) => {
+  const [choosenColor, setColor] = useState(colors[secondaryColor].main)
+  const [choosenBackgroundColor, setBackgroundColor] = useState(
+    colors[secondaryColor].contrastColor
+  )
 
-
-const Checkbox = ({ color='green', secondaryColor='white', children, disabled = false, source }) => {
-
-  const [choosenColor, setColor] = useState(colors[color].main);
-  const [choosenBackgroundColor, setBackgroundColor] = useState(colors[color].contrastColor);
-  
   const onPress = () => {
     if (invert) {
-      setColor(colors[color].main);
-      setBackgroundColor(colors[color].contrastColor);
-      invert = false;
+      setColor(colors[secondaryColor].main)
+      setBackgroundColor(colors[secondaryColor].contrastColor)
+      invert = false
     } else {
-      setColor(colors[secondaryColor].main);
-      setBackgroundColor(colors[secondaryColor].contrastColor);
-      invert = true;
+      setColor(colors[color].main)
+      setBackgroundColor(colors[color].contrastColor)
+      invert = true
     }
   }
-  
+
   return (
     <TouchableWithoutFeedback onPress={onPress}>
-      <View style={[styles.button, { backgroundColor: choosenColor}]}>
-        <Image source={source} style={[styles.image, {borderRadius: 100}]} /> 
-        <Text style={[styles.checkbox, {color: choosenBackgroundColor}]} >
+      <View style={[styles.container, { backgroundColor: choosenColor }]}>
+        <Image source={source} style={styles.image} />
+        <StyledText textColor={choosenBackgroundColor} textStyle='button'>
           {children}
-        </Text>
-    </View>
+        </StyledText>
+      </View>
     </TouchableWithoutFeedback>
   )
 }
@@ -38,26 +44,20 @@ const Checkbox = ({ color='green', secondaryColor='white', children, disabled = 
 export default Checkbox
 
 const styles = StyleSheet.create({
-  button: {
-    marginBottom: 8,
-    padding: 8,
-    paddingTop: 18,
+  container: {
+    flex: 1,
     borderRadius: 12,
     width: '100%',
-    display: 'block',
+    maxHeight: 70,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    flexDirection: 'row',
+    padding: 16,
   },
   image: {
-    height: 40,
-    width: 40,
-    position: 'relative',
-    float: 'left',
-    marginTop: -10,
-  },
-  checkbox: {
-    fontFamily: 'Poppins_700Bold',
-    fontSize: 16,
-    lineHeight: 24,
-    textAlign: 'center',
-    marginLeft: 20,
+    height: 45,
+    width: 45,
+    borderRadius: 100,
+    marginRight: 25,
   },
 })
