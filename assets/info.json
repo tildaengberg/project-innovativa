@@ -4,8 +4,15 @@
             "id": 0,
             "firstName": "Emma",
             "LastName": "Johansson",
-            "age": 22,
-            "profilePic":"jaa"
+            "age": 27,
+            "profilePic":"../assets/images/emmaProfile.png"
+        },
+        {
+            "id": 1,
+            "firstName": "Elias",
+            "LastName": "Johansson",
+            "age": 32,
+            "profilePic":"../assets/images/eliasProfile.png"
         }
     ],
     "textPosts":[
@@ -22,10 +29,10 @@
     "imagePosts":[
         {
             "id": 0,
-            "ownerID":0,
-            "image": "jah",
-            "comment":"hej jag heter emma johansson",
-            "time": "17.22",
+            "ownerID":1,
+            "image": "../assets/images/mat.png",
+            "comment":"Idag har vi varit och köpt mat på det nya stället i stan!",
+            "time": "17.44",
             "location":"Umeå, Sverige",
             "nrOfLikes": 2,
             "nrOfComments":1
