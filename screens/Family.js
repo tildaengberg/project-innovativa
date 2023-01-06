@@ -7,7 +7,7 @@ import Checkbox from '../components/Checkbox'
 import Summary from '../components/Summary'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
-const Family = ({navigation}) => {
+const Family = ({ navigation }) => {
   const [image, setImage] = useState()
 
   const getData = async () => {
@@ -55,7 +55,9 @@ const Family = ({navigation}) => {
           </Checkbox>
         </View>
         <View style={[styles.bottom, { width: '100%' }]}>
-          <Button color='yellow' onPress={navigation.navigate('Feed')}>Publicera</Button>
+          <Button color='yellow' onPress={() => navigation.navigate('Feed')}>
+            Publicera
+          </Button>
           <View style={[styles.centered]}>
             <Button color={'transparent'} children={'Inte nu >'}></Button>
           </View>
