@@ -8,13 +8,13 @@ import Post from '../screens/Post'
 import Profile from '../screens/Profile'
 import DailyPicChallange from '../screens/DailyPicChallenge'
 import Family from '../screens/Family'
+import Feed from '../screens/Feed'
 
 const Tab = createBottomTabNavigator()
 
 const Navbar = () => {
   const HomeStack = createStackNavigator()
 
-  // ! Add feed to stack
   function HomeStackScreen() {
     return (
       <HomeStack.Navigator
@@ -30,6 +30,7 @@ const Navbar = () => {
         />
         <HomeStack.Screen name='Post' component={Post} />
         <HomeStack.Screen name='Family' component={Family} />
+        <HomeStack.Screen name='Feed' component={Feed} />
       </HomeStack.Navigator>
     )
   }

@@ -1,6 +1,6 @@
 import {ScrollView, Text, View } from 'react-native'
 import colors from '../config/colors'
-import Moodstory from './Moodstory'
+import MoodModal from './Moodmodal'
 
 /**
  * 
@@ -18,12 +18,12 @@ const MoodstorySpinner = () => {
   
   return (
     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{backgroundColor:colors.background.main, paddingLeft:16, paddingBottom:30}}>
-      <Moodstory name= {"Isa"} emoji='&#129395;' onPress={() => console.log('Click på emoji')}/>
-      <Moodstory name= {"Elias"} emoji='&#9786;' onPress={() => console.log('Click på emoji')}/>
-      <Moodstory name= {"Anders"} emoji='&#129409;' onPress={() => console.log('Click på emoji')}/>
-      <Moodstory name= {"Emelie"} emoji='&#9996;' onPress={() => console.log('Click på emoji')}/>
-      <Moodstory name= {"Hanna"} emoji='&#129312;' onPress={() => console.log('Click på emoji')}/>
-      <Moodstory name= {"Emma"} emoji='&#128542;' onPress={() => console.log('Click på emoji')}/>
+      <MoodModal name= {"Isa"} emoji='&#129395;' onPress={() => console.log('Click på emoji')}/>
+      <MoodModal name= {"Elias"} emoji='&#9786;' onPress={() => console.log('Click på emoji')}/>
+      <MoodModal name= {"Anders"} emoji='&#129409;' onPress={() => console.log('Click på emoji')}/>
+      <MoodModal name= {"Emelie"} emoji='&#9996;' onPress={() => console.log('Click på emoji')}/>
+      <MoodModal name= {"Hanna"} emoji='&#129312;' onPress={() => console.log('Click på emoji')}/>
+      <MoodModal name= {"Emma"} emoji='&#128542;' onPress={() => console.log('Click på emoji')}/>
     </ScrollView>
   )
 }

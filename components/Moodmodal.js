@@ -9,7 +9,7 @@ import Moodstory from "./Moodstory";
 const Moodmodal = ({emoji, name}) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
-    <View style={[styles.centeredView, MarginBox.container]}>
+    <View>
         <Modal
             animationType="none"
             transparent={true}
@@ -37,7 +37,7 @@ const Moodmodal = ({emoji, name}) => {
                 </StyledText>
                 <View style={styles.descriptionText}>
                     <StyledText textStyle='bodySmall'>
-                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.
+                      Ska äta middag och fira Linneas födelsedag ikväll, det blir kul att testa en ny restaurang!
                     </StyledText>
                 </View>
                 
