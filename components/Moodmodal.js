@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
-import ProfilePic from "../components/ProfilePic";
 import StyledText from "../config/StyledText";
 import MarginBox from "../config/MarginBox";
 import Icon from 'react-native-vector-icons/Ionicons'
 import colors from '../config/colors'
-import Moodstory from "../components/Moodstory";
+import Moodstory from "./Moodstory";
 
-const Moodmodal = () => {
+const Moodmodal = ({emoji}) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={[styles.centeredView, MarginBox.container]}>
@@ -22,7 +21,7 @@ const Moodmodal = () => {
         >
             
             <View style={styles.centeredView}>
-            <View style={styles.modalView}>
+            <View style={[styles.modalView, MarginBox.container]}>
                 <View style={[{width: '100%'}]}>
                     <Pressable
                         style={[styles.button, styles.buttonClose]}
@@ -32,7 +31,7 @@ const Moodmodal = () => {
                     </Pressable>
                 </View>
             
-                <ProfilePic profile={require('../assets/profile.png')} size={150}></ProfilePic>
+                <Text style={[styles.emoji, {fontSize: 100}]}>{emoji}</Text>
                 <StyledText textStyle='h3'>
                     Emma Svensson
                 </StyledText>
@@ -45,7 +44,7 @@ const Moodmodal = () => {
             </View>
             </View>
         </Modal>
-        <Moodstory onPress={() => setModalVisible(true)}></Moodstory>
+        <Moodstory emoji={emoji} onPress={() => setModalVisible(true)}></Moodstory>
     </View>
   );
 };
@@ -55,13 +54,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22
   },
   modalView: {
-    margin: 20,
+    width: '100%',
+    height: '100%',
+    margin: 0,
     backgroundColor: "white",
-    borderRadius: 20,
-    padding: 35,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -94,7 +92,13 @@ const styles = StyleSheet.create({
   },
   descriptionText: {
     marginTop: 50,
-  }
+    padding: 16
+  },
+  emoji: {
+    marginTop: 100,
+    padding: 16,
+    marginBottom: 8,
+},
 });
 
 export default Moodmodal;
