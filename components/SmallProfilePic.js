@@ -8,8 +8,8 @@ const smallProfilePic = ({profile, emoji, name, location, time}) => {
     <View style={styles.holder}>
         <ProfilePic profile ={profile} emoji={emoji} size={60}></ProfilePic>
         <View style={styles.information}>
-            <StyledText textStyle='bodyLarge' textAlign='left' textColor={colors.background.contrastColor}>{name}</StyledText>
-            <StyledText textStyle='bodySmallest' textAlign='left' textColor={colors.background.contrastColor}>{location}{time}</StyledText>
+          <StyledText textStyle='bodyLarge' textAlign='left' textColor={colors.background.contrastColor}>{name}</StyledText>
+          <StyledText textStyle='bodySmallest' textAlign='left' textColor={colors.background.contrastColor}>{location} {time}</StyledText>
         </View>
     </View>
   )

@@ -27,12 +27,13 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     width: 103,
     height: 146,
-    backgroundColor: colors.background.main,    
+    backgroundColor: colors.white.main,    
     shadowColor: '#171717',
     shadowOffset: {width: 0, height: 4},
     shadowOpacity: 0.2,
     shadowRadius: 3,
-    marginRight:10
+    marginRight:10,
+    marginVertical:10
   },
   moodStoryEmoji: {
     fontSize: 50,

@@ -7,12 +7,10 @@ import StyledText from '../config/StyledText';
 import { useState } from 'react';
 import { Dimensions } from 'react-native';
 
-const ImagePost = () => {
+const ImagePost = ({post, user, emoji}) => {
 
-  //Just for testing
-  const profileImage = require('../assets/profile.png');
-  const image = require('../assets/testImage.jpg');
-  const text = "Tja tja bloggen, det här är en bild på ett hus som jag tycker är väldigt tjusig. Hoppas er dag har varit makalöst underbar 😘✅"
+  //const image = //require('../assets/testImage.jpg');
+  const text = post.comment;
 
   const [showAllText, setShowAllText] = useState(false);
 
@@ -21,9 +19,9 @@ const ImagePost = () => {
   }
 
   return (
-      <View>
-          <SmallProfilePic profile={profileImage} emoji='&#128546;' name='Emma' location='Sverige, Umeå ' time='17.22' />
-          <Image resizeMode="cover" style={styles.imgStyle} source={image} />
+      <View style={{marginBottom:16}}>
+          <SmallProfilePic profile={user.profilePic} emoji={emoji} name={user.firstName} location={post.location} time={post.time} />
+          <Image resizeMode="cover" style={styles.imgStyle} source={post.image} />
           {showAllText === true ? <StyledText textColor={'grey'} nrOfLines={1000} textStyle={'bodySmallest'}>{text}</StyledText> : <StyledText textColor={'grey'} nrOfLines={2} textStyle={'bodySmallest'}>{text}</StyledText> }
           {showAllText === true ? "" : <Text onPress={onPress} style={styles.viewMore}>Visa mer</Text>}
           <View style ={styles.likeAndCommentPost}>
@@ -46,7 +44,7 @@ const styles = StyleSheet.create({
   likeAndCommentPost:{
     display: 'flex',
     flexDirection: 'row',
-    width:'32%',
+    width:'28%',
     justifyContent: 'space-between',
     marginBottom:10,
   },

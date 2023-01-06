@@ -30,7 +30,7 @@
         {
             "id": 0,
             "ownerID":1,
-            "image": "../assets/images/mat.png",
+            "image": "/assets/images/mat.png",
             "comment":"Idag har vi varit och köpt mat på det nya stället i stan!",
             "time": "17.44",
             "location":"Umeå, Sverige",
