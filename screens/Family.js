@@ -35,6 +35,7 @@ const Family = ({ navigation }) => {
           </StyledText>
         </View>
         <Summary
+          emoji='&#129395;'
           image_size={140}
           picture={image}
           profile={require('../assets/profile.png')}

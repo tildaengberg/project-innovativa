@@ -18,7 +18,8 @@ const Feed = () => {
   const getData = async () => {
     try {
       const image = await AsyncStorage.getItem('image')
-      const text = await AsyncStorage.getItem('text')
+      const text1 = await AsyncStorage.getItem('text')
+      setText(text1)
       setImage(JSON.parse(image))
       return image != null ? JSON.parse(image) : null
     } catch (e) {
